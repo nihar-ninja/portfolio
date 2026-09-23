@@ -192,6 +192,16 @@ export const skillGroups = [
 
 export const contact = {
   email: 'niharprabhakara11@gmail.com',
+  /* Paste your Web3Forms access key here and the contact form starts
+     delivering straight to the inbox above — no server, no Vercel settings.
+
+     Get one at https://web3forms.com : type in niharprabhakara11@gmail.com,
+     they email you a key, paste it below. Free, no account, no card.
+
+     While this is empty the form falls back to opening a mail app / Gmail
+     compose window, which is what it did before. The key is designed to be
+     public — it only ever sends to the address it was issued for. */
+  formAccessKey: '',
   headline: ['WANT TO WORK', 'TOGETHER?'],
   blurb:
     'A shoot, an edit, an interface, a site, or something that should have been automated months ago. Send a brief or one sentence — either works.',
