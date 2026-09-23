@@ -1,6 +1,8 @@
 /* =============================================================================
-   PLACEHOLDER CONTENT — the only file you need to edit to make the site yours.
-   Every string below is invented. Replace it with your own.
+   SITE CONTENT — the only file you need to edit to change what the site says.
+
+   Anything still marked PLACEHOLDER is something I could not know and you
+   should replace: your email, your social handles, and the projects.
 
    Images live in /public:
      photo.jpg          portrait, used on /about
@@ -15,11 +17,12 @@ export const site = {
   title: 'Nihar - Portfolio',
   // The serif logotype in the top-left. Initials work best.
   logotype: 'N.P',
-  role: 'Product Designer',
+  // Appears in the footer and in the hero's screen-reader heading.
+  role: 'Designer & Developer',
   description:
-    'Product designer working on internal tools — dispatch boards, inspection apps, the software people are stuck with all day.',
-  // PLACEHOLDER: used for canonical and Open Graph URLs once you deploy.
-  url: 'https://example.com',
+    'Nihar Prabhakar — designer and developer in Bangalore. Visual and UI design, photography, video and motion, web builds, and automation.',
+  // Your live domain, so link previews and canonical URLs resolve properly.
+  url: 'https://np-studio-one.vercel.app',
   location: 'Bangalore, IN',
 }
 
@@ -31,8 +34,7 @@ export const nav = [
 ]
 
 export const home = {
-  // PLACEHOLDER: the giant word behind your photo. One word, 8–10 characters
-  // reads best — longer than that and it stops filling the screen.
+  // The giant word behind the figure. One word, 8–10 characters reads best.
   displayWord: 'PORTFOLIO',
   // The two labels flanking the figure.
   flankLeft: 'NIHAR',
@@ -41,32 +43,41 @@ export const home = {
      fail to load. Rewrite this whenever you change /public/photo-cutout.png. */
   imageAlt:
     'Illustration of a figure in a pink embroidered sherwani and cream trousers, head bowed',
-  // PLACEHOLDER: one real sentence. It sits under the fold on the home page.
+  // Sits under the fold on the home page, lit word by word as you scroll.
   statement:
-    "Ten years of product design, almost all of it on tools for people whose job isn't using software — dispatchers, surveyors, bookkeepers. I'm more interested in the third screen than the landing page.",
-  // PLACEHOLDER: the looping ticker. Keep them short and uppercase.
-  marquee: ['PRODUCT DESIGN', 'DESIGN SYSTEMS', 'RESEARCH', 'PROTOTYPING', 'INTERFACE'],
+    'I shoot it, cut it, design it, and then build the thing it lives on. Most people pick one lane. I never saw the point, when the same idea has to survive all of them anyway.',
+  // The looping ticker. Short and uppercase.
+  marquee: [
+    'PHOTOGRAPHY',
+    'VIDEOGRAPHY',
+    'UI DESIGN',
+    'MOTION',
+    'WEB DEVELOPMENT',
+    'AUTOMATION',
+  ],
 }
 
 export const about = {
-  /* PLACEHOLDER BIO — first-person and specific on purpose. Rewrite it in your
-     own voice; the specifics are what stop it reading like marketing copy. */
+  /* Written first-person from the disciplines you listed. Rewrite freely —
+     it should sound like you, and right now it sounds like me guessing. */
   paragraphs: [
-    'I started out making zines in a university print room and ended up in enterprise software, which makes more sense than it sounds. Both are mostly about cramming a lot into a small space without making it ugly.',
-    'These days I work on internal tools — the screens nobody posts on Dribbble, that someone opens two hundred times a day. Less about visual style, more about arguing for fewer fields, better defaults, and error messages that say what actually went wrong.',
-    'I think best on long walks and worst in meetings after 4pm. Outside of work I am slowly restoring a 1972 Vespa and I am still, three years in, bad at it.',
+    'I work across design, camera and code. Interfaces and visual work on one side, photography and video on the other, and the web build that ties the two together — usually on the same project, which is the part I actually like.',
+    'The camera side is shooting, editing, motion and grade. The design side is visual and UI work. The code side is the front end, and I build it with AI in the loop rather than pretending otherwise — it is faster, and I would rather be straight about how the work gets made.',
+    'The last piece is automation. If I have done something by hand twice, I would rather lose an afternoon making it run itself than keep doing it for the next year.',
   ],
-  // PLACEHOLDER: these count up when they scroll into view. `value` is a number.
+  /* These count up when they scroll into view. They are deliberately things
+     that are true rather than impressive-sounding numbers I made up — change
+     them to whatever you can actually stand behind. */
   stats: [
-    { value: 10, suffix: '+', label: 'years designing' },
-    { value: 34, suffix: '', label: 'products shipped' },
+    { value: 8, suffix: '', label: 'disciplines' },
     { value: 1, suffix: '', label: 'person, no studio' },
+    { value: 0, suffix: '', label: 'of it outsourced' },
   ],
   facts: [
     { label: 'Based in', value: 'Bangalore, IN' },
-    { label: 'Currently', value: 'Design lead at Freightline' },
-    { label: 'Before that', value: 'Two product studios, then freelance' },
-    { label: 'Open to', value: 'Contract work from March' },
+    { label: 'Works across', value: 'Design, film and code' },
+    // PLACEHOLDER: change if you are not looking for work right now.
+    { label: 'Available for', value: 'Freelance and collaborations' },
   ],
 }
 
@@ -96,190 +107,96 @@ export type Project = {
   }
 }
 
-/* PLACEHOLDER PROJECTS — replace with your own. The /work page pins and scrubs
-   through these in order, so keep the list between about four and eight.
-   Screenshots are placeholder JPEGs in /public/projects. */
-export const projects: Project[] = [
-  {
-    slug: 'freightline',
-    title: 'Freightline Dispatch',
-    year: '2024',
-    blurb: 'A dispatch board for a 40-truck freight company.',
-    description:
-      'Their dispatchers were running the entire operation from a whiteboard and three browser tabs. I sat in the office for two weeks before drawing anything, then rebuilt the board around how they actually sequence loads rather than how the database was shaped.',
-    tags: ['Product design', 'Field research', 'Design system', 'Figma'],
-    image: '/projects/freightline.jpg',
-    imageAlt: 'Dispatch board interface showing a timeline of truck assignments',
-    liveHref: 'https://example.com',
-    repoHref: 'https://github.com/example/freightline',
-    detail: {
-      role: 'Lead product designer',
-      timeline: 'Jan – Jun 2024',
-      problem:
-        'Dispatchers held the day in their heads. Every load was assigned by shouting across the room, and the software existed mostly to record what had already been decided.',
-      contributions: [
-        'Two weeks of contextual inquiry on the dispatch floor before opening Figma',
-        'Rebuilt the board around driver-hours rather than order IDs',
-        'Designed the conflict states first, since that is where the job actually lives',
-        'Shipped a 40-component system so the three internal apps stopped diverging',
-      ],
-      outcomes: [
-        'Time to assign a load fell from about four minutes to forty seconds',
-        'Double-booked drivers dropped to near zero in the first quarter',
-        'The whiteboard came down in week three and did not go back up',
-      ],
-    },
-  },
-  {
-    slug: 'tideline',
-    title: 'Tideline',
-    year: '2023',
-    blurb: 'Tide and wind forecasts for sea kayakers.',
-    description:
-      'I got caught out by a turning tide off the Karnataka coast and decided that was, at least partly, a design problem. Tideline answers one question — is it safe to go out in the next six hours — instead of showing nine charts and letting you work it out yourself.',
-    tags: ['Side project', 'iOS', 'SwiftUI'],
-    image: '/projects/tideline.jpg',
-    imageAlt: 'Mobile app screen showing a tide curve and a go or no-go summary',
-    liveHref: 'https://example.com',
-    repoHref: 'https://github.com/example/tideline',
-    detail: {
-      role: 'Designer and developer',
-      timeline: 'Weekends, 2023',
-      problem:
-        'Every marine forecast app is built for people who already know how to read one. If you are two seasons in, you get nine charts and no answer.',
-      contributions: [
-        'Reduced the whole forecast to a single go / wait / no-go verdict',
-        'Kept the raw charts one tap away, so it teaches rather than hides',
-        'Built it in SwiftUI myself over about fifteen weekends',
-      ],
-      outcomes: [
-        'Roughly 2,000 downloads with no marketing beyond one forum post',
-        'Two local clubs use it for their beginner sessions',
-      ],
-    },
-  },
-  {
-    slug: 'hoxton',
-    title: 'Hoxton',
-    year: '2022',
-    blurb: 'A design system three teams actually adopted.',
-    description:
-      'Sixty-odd components, but the real work was political. I ran a weekly clinic for six months so engineers could bring me their edge cases instead of quietly forking the button.',
-    tags: ['Design systems', 'Documentation', 'Figma', 'Storybook'],
-    image: '/projects/hoxton.jpg',
-    imageAlt: 'Grid of design system components with specification annotations',
-    liveHref: 'https://example.com',
-    detail: {
-      role: 'Design systems lead',
-      timeline: '2021 – 2022',
-      problem:
-        'Three product teams, three button components, and a shared codebase where none of them matched. Previous attempts had failed by mandate.',
-      contributions: [
-        'Audited every screen before proposing a single component',
-        'Ran an open weekly clinic instead of a governance process',
-        'Wrote the documentation as answers to questions people had actually asked',
-      ],
-      outcomes: [
-        'Adoption went from one team to three without a mandate',
-        'New-screen build time roughly halved by the end of the year',
-      ],
-    },
-  },
-  {
-    slug: 'fieldbook',
-    title: 'Fieldbook',
-    year: '2021',
-    blurb: 'Offline-first inspection app for building surveyors.',
-    description:
-      'Surveyors work in basements and stairwells with no signal, so every interaction had to survive losing connection halfway through a form. Most of the design work was deciding what to show someone when the app cannot be certain of anything.',
-    tags: ['Offline-first', 'Mobile', 'User research'],
-    image: '/projects/fieldbook.jpg',
-    imageAlt: 'Tablet inspection form with an offline sync indicator',
-    repoHref: 'https://github.com/example/fieldbook',
-    detail: {
-      role: 'Product designer',
-      timeline: 'Mar – Nov 2021',
-      problem:
-        'The existing tool assumed a connection. Surveyors lost an afternoon of work often enough that most had gone back to paper and retyped it in the evening.',
-      contributions: [
-        'Shadowed four surveyors through full inspections, including the basements',
-        'Designed a sync model the user can see and trust, rather than a spinner',
-        'Made every destructive action recoverable, since the network is not reliable',
-      ],
-      outcomes: [
-        'Paper fallback dropped from most inspections to almost none',
-        'Evenings spent retyping notes, by their own estimate, went to zero',
-      ],
-    },
-  },
-  {
-    slug: 'set-in-stone',
-    title: 'Set in Stone',
-    year: '2020',
-    blurb: 'A tiny type-scale tool I still use every week.',
-    description:
-      'One page, two inputs, no account. I built it in a weekend because every other type scale generator wanted my email address first.',
-    tags: ['Weekend build', 'TypeScript'],
-    image: '/projects/set-in-stone.jpg',
-    imageAlt: 'Type scale tool showing a ratio slider and preview text',
-    liveHref: 'https://example.com',
-    repoHref: 'https://github.com/example/set-in-stone',
-    detail: {
-      role: 'Designer and developer',
-      timeline: 'One weekend, 2020',
-      problem:
-        'Every type scale generator online is a lead magnet with a tool attached.',
-      contributions: [
-        'Two inputs, live preview, copyable CSS custom properties',
-        'No account, no analytics, no email capture',
-      ],
-      outcomes: ['Still the tool I reach for first, five years on'],
-    },
-  },
-]
+/* ===== NO PROJECTS YET ====================================================
+   Empty on purpose — there is no real work to show yet, and inventing case
+   studies under your own name is not worth it. While this list is empty, the
+   work page and the home-page teaser both render a 'coming soon' state.
 
-/* PLACEHOLDER SKILLS — the /skills page reveals these line by line.
-   `note` is optional and only worth adding when a group needs a caveat. */
+   Add an entry and everything switches on by itself: the pinned scrub on
+   /work, the teaser rows on the home page, and a static page per project at
+   /work/<slug>. The shape is the Project type above. Example:
+
+   {
+     slug: 'sherwani-series',
+     title: 'Sherwani Series',
+     year: '2026',
+     blurb: 'A portrait series shot over three weekends.',
+     description: 'Two or three sentences on what it was and what you made.',
+     tags: ['Photography', 'Editing'],
+     image: '/projects/sherwani.jpg',
+     imageAlt: 'Describe the screenshot or frame',
+     liveHref: 'https://example.com',
+     detail: {
+       role: 'Photographer and editor',
+       timeline: 'Feb 2026',
+       problem: 'What the brief was.',
+       contributions: ['What you shot', 'What you cut'],
+       outcomes: ['Where it ran'],
+     },
+   },
+   ========================================================================= */
+export const projects: Project[] = []
+
+/* Shown wherever projects would be, for as long as `projects` is empty.
+   Once you add one, none of this appears anywhere. */
+export const workEmpty = {
+  eyebrow: 'In progress',
+  headline: ['NOTHING', 'HERE YET'],
+  blurb:
+    'I am putting the first pieces together — a shoot, an edit, and a build. They will go up here as they are finished rather than all at once.',
+  // The disciplines listed under the headline.
+  disciplines: [
+    'Photography',
+    'Videography',
+    'Editing',
+    'Visual & UI design',
+    'Motion',
+    'Web development',
+    'Automation',
+  ],
+  ctaLabel: 'Want to be the first one?',
+}
+
+/* The /skills page reveals these line by line. `note` is optional and only
+   worth adding when a group needs a caveat. */
 export const skillGroups = [
   {
     title: 'Design',
-    note: 'Where most of my time goes.',
-    items: [
-      'Interaction design',
-      'Design systems',
-      'Information architecture',
-      'Prototyping',
-      'Typography',
-    ],
+    note: 'Interfaces and everything around them.',
+    items: ['Visual design', 'UI design', 'Layout & typography', 'Prototyping'],
   },
   {
-    title: 'Research',
-    note: 'Enough to run it myself, not enough to call myself a researcher.',
-    items: ['Contextual inquiry', 'Usability testing', 'Survey design', 'Synthesis workshops'],
+    title: 'Camera',
+    note: 'Shot and finished by the same person.',
+    items: ['Photography', 'Videography', 'Lighting', 'Editing'],
+  },
+  {
+    title: 'Motion',
+    items: ['Motion graphics', 'Titles & transitions', 'Colour grading'],
   },
   {
     title: 'Build',
-    note: 'I ship my own prototypes and read the team’s pull requests.',
-    items: ['HTML & CSS', 'React', 'TypeScript', 'SwiftUI (slowly)'],
+    note: 'Built with AI in the loop, which I would rather say than hide.',
+    items: ['Web development', 'Front-end', 'Vibe coding'],
   },
   {
-    title: 'Tools',
-    items: ['Figma', 'Storybook', 'Linear', 'Framer', 'Git'],
+    title: 'Automation',
+    note: 'Anything I have had to do by hand twice.',
+    items: ['Workflow automation', 'Integrations', 'Scripting'],
   },
 ]
 
-/* PLACEHOLDER CONTACT — swap in your real email and profiles. */
 export const contact = {
-  email: 'hello@example.com',
-  // PLACEHOLDER: the big statement on /contact. Direct beats clever here.
+  email: 'niharprabhakara11@gmail.com',
   headline: ['WANT TO WORK', 'TOGETHER?'],
   blurb:
-    'Send a brief, a half-formed idea, or one sentence. You get a straight answer and a timeline back, usually the same day.',
+    'A shoot, an edit, an interface, a site, or something that should have been automated months ago. Send a brief or one sentence — either works.',
   socials: [
-    { label: 'GitHub', href: 'https://github.com/example', handle: '@example' },
+    { label: 'GitHub', href: 'https://github.com/nihar-ninja', handle: '@nihar-ninja' },
+    // PLACEHOLDER: your real profiles.
+    { label: 'Instagram', href: 'https://instagram.com/example', handle: '@example' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/example', handle: '/in/example' },
-    { label: 'X', href: 'https://x.com/example', handle: '@example' },
   ],
-  // PLACEHOLDER: drop your CV at /public/resume.pdf.
+  // PLACEHOLDER: drop your CV at /public/resume.pdf, or remove this link.
   resumeHref: '/resume.pdf',
 }

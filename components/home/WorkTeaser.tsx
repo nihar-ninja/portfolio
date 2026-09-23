@@ -2,13 +2,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 import DisplayHeading from '@/components/DisplayHeading'
 import Reveal from '@/components/Reveal'
+import WorkEmpty from '@/components/work/WorkEmpty'
 import { projects } from '@/lib/content'
 
 /* Three projects on the home page, as rows rather than cards. The image only
    appears on hover on desktop, which keeps the list quiet until you engage
-   with it — and on touch it simply renders inline instead. */
+   with it — and on touch it simply renders inline instead.
+
+   With no projects in lib/content.ts yet, the same panel carries the
+   coming-soon state instead, so the home page never has a gap in it. */
 export default function WorkTeaser() {
   const shortlist = projects.slice(0, 3)
+
+  if (shortlist.length === 0) {
+    return (
+      <section className="panel px-6 py-24 sm:py-32 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <WorkEmpty compact />
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="panel px-6 py-24 sm:py-32 lg:px-10">
