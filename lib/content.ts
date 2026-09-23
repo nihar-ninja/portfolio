@@ -77,6 +77,11 @@ export const about = {
     { value: 8, suffix: '', label: 'disciplines' },
     { value: 1, suffix: '', label: 'person, no studio' },
   ],
+  /* Describes /public/photo.jpg. Rewrite it whenever you change that image —
+     it is what a screen reader announces, and what shows if the file fails
+     to load. */
+  imageAlt:
+    'Gig poster for The Static Rejects: torn-paper lettering and a photocopied hand over a grainy black-and-white crowd',
   facts: [
     { label: 'Based in', value: 'Bangalore, IN' },
     { label: 'Works across', value: 'Design, film and code' },

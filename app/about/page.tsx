@@ -4,7 +4,7 @@ import CountUp from '@/components/CountUp'
 import CtaPanel from '@/components/CtaPanel'
 import DisplayHeading from '@/components/DisplayHeading'
 import Reveal from '@/components/Reveal'
-import { about, site } from '@/lib/content'
+import { about } from '@/lib/content'
 import { experienceStat } from '@/lib/experience'
 
 export const metadata: Metadata = {
@@ -36,12 +36,13 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
             <Reveal className="lg:col-span-5">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-chalk/10">
-                {/* PLACEHOLDER IMAGE: replace /public/photo.jpg with a real
-                    portrait. A 4:5 crop at 1000×1250 or larger works best. */}
+              {/* 2:3 to match the poster exactly — a 4:5 crop ate the top and
+                  bottom of it. Change this if you swap in an image of another
+                  shape, and update about.imageAlt to match. */}
+              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-chalk/10">
                 <Image
                   src="/photo.jpg"
-                  alt={`${site.name} in ${site.location}`}
+                  alt={about.imageAlt}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
