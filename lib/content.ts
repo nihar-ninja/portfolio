@@ -11,6 +11,8 @@
 export const site = {
   // Shown in the hero, split across the display type.
   name: 'Nihar Prabhakar',
+  // What the browser tab says on the home page.
+  title: 'Nihar - Portfolio',
   // The serif logotype in the top-left. Initials work best.
   logotype: 'N.P',
   role: 'Product Designer',

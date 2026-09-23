@@ -33,12 +33,13 @@ const serif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: site.title,
+    // Inner pages read "Work — Nihar Prabhakar", "About — Nihar Prabhakar".
     template: `%s — ${site.name}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.name} — ${site.role}`,
+    title: site.title,
     description: site.description,
     url: site.url,
     type: 'website',
