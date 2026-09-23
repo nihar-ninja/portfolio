@@ -50,19 +50,19 @@ export default function Hero() {
           style={{ y: photoY, scale: photoScale }}
           className="relative z-10 mt-auto flex justify-center"
         >
-          <div className="relative aspect-[3/4] w-[min(78vw,30rem)] origin-bottom">
-            {/* PLACEHOLDER IMAGE: replace /public/photo-cutout.png with a
-                background-removed portrait (transparent PNG). That transparency
-                is what lets the display word show through behind you. If you
-                only have a rectangular photo, point this at /photo.jpg — it
-                still works, it just reads as a framed picture rather than a
-                cut-out. */}
+          {/* Sized by height rather than by aspect ratio: the artwork is a tall
+              full-body figure, and it needs to stand far enough up the screen
+              that its head and shoulders cross the display word behind it. */}
+          <div className="relative h-[min(78svh,46rem)] w-[min(72vw,22rem)] origin-bottom">
+            {/* Swap /public/photo-cutout.png to change this. It must be a
+                transparent PNG — that transparency is what lets the word show
+                through behind the figure. */}
             <Image
               src="/photo-cutout.png"
-              alt={`${site.name}, ${site.role.toLowerCase()} based in ${site.location}`}
+              alt={home.imageAlt}
               fill
               priority
-              sizes="(max-width: 640px) 78vw, 480px"
+              sizes="(max-width: 640px) 72vw, 352px"
               className="object-contain object-bottom"
             />
           </div>

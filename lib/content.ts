@@ -35,6 +35,10 @@ export const home = {
   // PLACEHOLDER: the two small labels flanking the photo.
   flankLeft: 'PRODUCT',
   flankRight: 'DESIGNER',
+  /* Describes the hero image for screen readers and for anyone whose images
+     fail to load. Rewrite this whenever you change /public/photo-cutout.png. */
+  imageAlt:
+    'Illustration of a figure in a pink embroidered sherwani and cream trousers, head bowed',
   // PLACEHOLDER: one real sentence. It sits under the fold on the home page.
   statement:
     "Ten years of product design, almost all of it on tools for people whose job isn't using software — dispatchers, surveyors, bookkeepers. I'm more interested in the third screen than the landing page.",
