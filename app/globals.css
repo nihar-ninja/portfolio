@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Lenis drives scrolling, so native smooth scrolling has to stay off or the
+     two fight each other. Restored below when motion is reduced. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    @apply bg-void text-chalk antialiased;
+    font-feature-settings: 'cv05' 1, 'ss03' 1;
+  }
+
+  ::selection {
+    @apply bg-accent text-void;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-4 ring-offset-void;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  /* Display type is set tight and optically aligned — at these sizes the
+     default tracking and line height both read as loose. */
+  .display {
+    @apply font-display uppercase leading-[0.82] tracking-[-0.01em];
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-chalk/40;
+  }
+
+  .rule {
+    @apply border-chalk/10;
+  }
+
+  /* Text link: an underline that wipes out and back on hover. */
+  .link-wipe {
+    @apply relative inline-block no-underline;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-wipe:hover {
+    background-size: 0% 1px;
+  }
+
+  /* Each full-height panel sits on top of the one before it. The rounded top
+     and the ring are what make the overlap legible as you scroll. */
+  .panel {
+    @apply relative z-10 rounded-t-[1.75rem] bg-panel ring-1 ring-inset ring-chalk/[0.07] sm:rounded-t-[2.5rem];
+  }
+}
+
+@layer utilities {
+  /* Fades the ends of the marquee into the background. */
+  .mask-edges {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+}
