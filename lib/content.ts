@@ -65,13 +65,17 @@ export const about = {
     'The camera side is shooting, editing, motion and grade. The design side is visual and UI work. The code side is the front end, and I build it with AI in the loop rather than pretending otherwise — it is faster, and I would rather be straight about how the work gets made.',
     'The last piece is automation. If I have done something by hand twice, I would rather lose an afternoon making it run itself than keep doing it for the next year.',
   ],
-  /* These count up when they scroll into view. They are deliberately things
-     that are true rather than impressive-sounding numbers I made up — change
-     them to whatever you can actually stand behind. */
+  /* The day you started. The first stat counts from here and looks after
+     itself — "1 month in", "7 months in", then "1 year in" once twelve months
+     have passed. Change this date to your real start and nothing else needs
+     touching, ever. Format: YYYY-MM-DD. */
+  experienceStart: '2026-08-23',
+  /* The other two counters, which count up when they scroll into view.
+     Deliberately things that are true rather than impressive-sounding numbers
+     I invented — change them to whatever you can stand behind. */
   stats: [
     { value: 8, suffix: '', label: 'disciplines' },
     { value: 1, suffix: '', label: 'person, no studio' },
-    { value: 0, suffix: '', label: 'of it outsourced' },
   ],
   facts: [
     { label: 'Based in', value: 'Bangalore, IN' },

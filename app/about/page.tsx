@@ -5,13 +5,22 @@ import CtaPanel from '@/components/CtaPanel'
 import DisplayHeading from '@/components/DisplayHeading'
 import Reveal from '@/components/Reveal'
 import { about, site } from '@/lib/content'
+import { experienceStat } from '@/lib/experience'
 
 export const metadata: Metadata = {
   title: 'About',
   description: about.paragraphs[0],
 }
 
+/* The experience counter is worked out when the page renders, so the page has
+   to be rebuilt periodically or it would freeze at whatever it said on the day
+   it was deployed. Once a day is far more often than a month-counter needs. */
+export const revalidate = 86400
+
 export default function AboutPage() {
+  // Counts months, then years, from about.experienceStart.
+  const stats = [experienceStat(about.experienceStart), ...about.stats]
+
   return (
     <>
       {/* The heading sits behind the portrait here too, but cropped by the
@@ -74,7 +83,7 @@ export default function AboutPage() {
       {/* Counters. They run once, when they reach the viewport. */}
       <section className="panel px-6 py-24 sm:py-28 lg:px-10">
         <dl className="mx-auto grid max-w-7xl gap-12 sm:grid-cols-3">
-          {about.stats.map((stat, i) => (
+          {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 0.08}>
               <dd className="display text-[clamp(3.5rem,9vw,7rem)] text-accent">
                 <CountUp value={stat.value} suffix={stat.suffix} />
