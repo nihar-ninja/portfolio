@@ -9,10 +9,10 @@
    ========================================================================== */
 
 export const site = {
-  // PLACEHOLDER: your name. Shown in the hero, split across the display type.
-  name: 'Maya Iyer',
-  // PLACEHOLDER: the serif logotype in the top-left. Initials work best.
-  logotype: 'M.I',
+  // Shown in the hero, split across the display type.
+  name: 'Nihar Prabhakar',
+  // The serif logotype in the top-left. Initials work best.
+  logotype: 'N.P',
   role: 'Product Designer',
   description:
     'Product designer working on internal tools — dispatch boards, inspection apps, the software people are stuck with all day.',
@@ -32,9 +32,9 @@ export const home = {
   // PLACEHOLDER: the giant word behind your photo. One word, 8–10 characters
   // reads best — longer than that and it stops filling the screen.
   displayWord: 'PORTFOLIO',
-  // PLACEHOLDER: the two small labels flanking the photo.
-  flankLeft: 'PRODUCT',
-  flankRight: 'DESIGNER',
+  // The two labels flanking the figure.
+  flankLeft: 'NIHAR',
+  flankRight: 'PRABHAKAR',
   /* Describes the hero image for screen readers and for anyone whose images
      fail to load. Rewrite this whenever you change /public/photo-cutout.png. */
   imageAlt:
