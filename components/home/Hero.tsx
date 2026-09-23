@@ -79,7 +79,13 @@ export default function Hero() {
               initial={{ opacity: 0, x: i === 0 ? -24 : 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.5 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="display text-[clamp(1.25rem,3.6vw,3rem)]"
+              /* Both labels are pinned to the outer edges, so the shorter of
+                 the two ends up sitting further from the figure. The left one
+                 gets nudged inward to even the gaps up — once there is room
+                 for it, which there is not on a phone. */
+              className={`display text-[clamp(1.5rem,4.2vw,3.5rem)] ${
+                i === 0 ? 'sm:ml-[6vw]' : ''
+              }`}
             >
               {label}
             </motion.span>
