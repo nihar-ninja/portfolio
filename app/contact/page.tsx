@@ -70,9 +70,12 @@ export default function ContactPage() {
 
           <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.1}>
             <div className="rounded-2xl bg-panel p-8 ring-1 ring-inset ring-chalk/[0.07] sm:p-10">
+              {/* The form behaves differently depending on whether a form key
+                  is set in lib/content.ts, so the label has to say which. */}
               <p className="mb-8 text-sm text-chalk/45">
-                Or use this — it opens your mail app with the message filled in. Nothing is sent
-                anywhere else.
+                {contact.formAccessKey
+                  ? 'Or use this — it goes straight to my inbox, and I usually reply the same day.'
+                  : 'Or use this — it opens the message in your mail, ready to send. Gmail by default, with other options once you submit.'}
               </p>
               <ContactForm />
             </div>
