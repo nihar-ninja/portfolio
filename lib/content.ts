@@ -20,7 +20,7 @@ export const site = {
     'Product designer working on internal tools — dispatch boards, inspection apps, the software people are stuck with all day.',
   // PLACEHOLDER: used for canonical and Open Graph URLs once you deploy.
   url: 'https://example.com',
-  location: 'Lisbon, PT',
+  location: 'Bangalore, IN',
 }
 
 export const nav = [
@@ -63,9 +63,9 @@ export const about = {
     { value: 1, suffix: '', label: 'person, no studio' },
   ],
   facts: [
-    { label: 'Based in', value: 'Lisbon, PT' },
+    { label: 'Based in', value: 'Bangalore, IN' },
     { label: 'Currently', value: 'Design lead at Freightline' },
-    { label: 'Before that', value: 'Monzo, then four years freelance' },
+    { label: 'Before that', value: 'Two product studios, then freelance' },
     { label: 'Open to', value: 'Contract work from March' },
   ],
 }
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     year: '2023',
     blurb: 'Tide and wind forecasts for sea kayakers.',
     description:
-      'I got caught out by a turning tide off the Algarve and decided that was, at least partly, a design problem. Tideline answers one question — is it safe to go out in the next six hours — instead of showing nine charts and letting you work it out yourself.',
+      'I got caught out by a turning tide off the Karnataka coast and decided that was, at least partly, a design problem. Tideline answers one question — is it safe to go out in the next six hours — instead of showing nine charts and letting you work it out yourself.',
     tags: ['Side project', 'iOS', 'SwiftUI'],
     image: '/projects/tideline.jpg',
     imageAlt: 'Mobile app screen showing a tide curve and a go or no-go summary',
