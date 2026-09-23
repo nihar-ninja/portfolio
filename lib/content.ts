@@ -196,10 +196,8 @@ export const contact = {
   blurb:
     'A shoot, an edit, an interface, a site, or something that should have been automated months ago. Send a brief or one sentence — either works.',
   socials: [
+    { label: 'Instagram', href: 'https://instagram.com/nihar_prabhakar', handle: '@nihar_prabhakar' },
     { label: 'GitHub', href: 'https://github.com/nihar-ninja', handle: '@nihar-ninja' },
-    // PLACEHOLDER: your real profiles.
-    { label: 'Instagram', href: 'https://instagram.com/example', handle: '@example' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/example', handle: '/in/example' },
   ],
   // PLACEHOLDER: drop your CV at /public/resume.pdf, or remove this link.
   resumeHref: '/resume.pdf',
