@@ -3,8 +3,50 @@
 @tailwind utilities;
 
 @layer base {
+  /* ===== Theme ==============================================================
+     Dark is the default — it is what the site was designed around. Adding the
+     `light` class to <html> swaps the palette; the inline script in
+     app/layout.tsx does that before first paint so there is no flash.
+
+     Channels are space-separated RGB so Tailwind can apply its own alpha,
+     which is what makes `text-chalk/60` work in both themes. */
+  :root {
+    --c-void: 5 6 8;
+    --c-panel: 11 13 17;
+    --c-chalk: 242 241 239;
+    --c-accent: 59 91 253;
+    --c-accent-deep: 178 84 47;
+    /* Lifted panels need a visible edge on light and almost none on dark. */
+    --shadow-panel: 0 0 0 0 transparent;
+    --glow-alpha: 0.1;
+  }
+
+  :root.light {
+    /* Warm off-white rather than pure white: the display type is heavy, and
+       pure white under it glares. Panels then go actually white, so they
+       still read as raised rather than merely a different grey. */
+    --c-void: 244 243 241;
+    --c-panel: 255 255 255;
+    --c-chalk: 23 23 26;
+    /* Darkened from the dark-mode blue to clear 4.5:1 on white — the dark
+       theme's brighter blue only manages about 5:1 and looks thin. */
+    --c-accent: 46 76 224;
+    --c-accent-deep: 150 66 33;
+    --shadow-panel: 0 -1px 40px -12px rgb(23 23 26 / 0.12);
+    --glow-alpha: 0.06;
+  }
+
   html {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Native widgets — scrollbars, form controls — follow the theme too. */
+  :root {
+    color-scheme: dark;
+  }
+
+  :root.light {
+    color-scheme: light;
   }
 
   /* Lenis drives scrolling, so native smooth scrolling has to stay off or the
@@ -69,9 +111,17 @@
   }
 
   /* Each full-height panel sits on top of the one before it. The rounded top
-     and the ring are what make the overlap legible as you scroll. */
+     and the ring are what make the overlap legible as you scroll — on light
+     the ring nearly vanishes, so a soft shadow does that job instead. */
   .panel {
     @apply relative z-10 rounded-t-[1.75rem] bg-panel ring-1 ring-inset ring-chalk/[0.07] sm:rounded-t-[2.5rem];
+    box-shadow: var(--shadow-panel);
+  }
+
+  /* The bloom behind the hero figure. Carried as a variable because it needs
+     to be weaker on a pale background or it reads as a smudge. */
+  .hero-glow {
+    background-color: rgb(var(--c-accent) / var(--glow-alpha));
   }
 }
 

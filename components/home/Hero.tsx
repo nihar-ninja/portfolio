@@ -30,7 +30,7 @@ export default function Hero() {
           as rim light, not as a gradient background. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[58%] h-[65vh] w-[65vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[130px]"
+        className="hero-glow pointer-events-none absolute left-1/2 top-[58%] h-[65vh] w-[65vh] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[130px]"
       />
 
       <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl flex-col px-6 lg:px-10">

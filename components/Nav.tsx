@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { nav, site } from '@/lib/content'
+import ThemeToggle from './ThemeToggle'
 
 export default function Nav() {
   const pathname = usePathname()
@@ -40,7 +41,10 @@ export default function Nav() {
           scrolled ? 'bg-void/70 backdrop-blur-xl' : ''
         }`}
       >
-        <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-6 lg:px-10">
+        {/* Wider than the 7xl the page content uses, so the bar sits closer to
+            the edges of a big screen instead of stranded in the middle. Enough
+            padding is kept that nothing ever touches the edge. */}
+        <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between px-6 sm:px-8 lg:px-12">
           <Link
             href="/"
             className="font-serif text-2xl italic leading-none"
@@ -62,35 +66,45 @@ export default function Nav() {
                 {item.label}
               </Link>
             ))}
+            <span className="mx-2 h-4 w-px bg-chalk/15" aria-hidden="true" />
+            <ThemeToggle />
             <Link
               href="/contact"
-              className="ml-3 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-void transition-colors hover:bg-chalk"
+              className="ml-3 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-void transition-colors hover:bg-chalk hover:text-void"
             >
               Hire me
             </Link>
           </nav>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            className="relative z-10 grid h-10 w-10 place-items-center md:hidden"
-          >
-            <span className="relative block h-[11px] w-6" aria-hidden="true">
-              <span
-                className={`absolute left-0 block h-px w-full bg-current transition-all duration-300 ${
-                  open ? 'top-[5px] rotate-45' : 'top-0'
-                }`}
-              />
-              <span
-                className={`absolute left-0 block h-px w-full bg-current transition-all duration-300 ${
-                  open ? 'top-[5px] -rotate-45' : 'top-[11px]'
-                }`}
-              />
-            </span>
-          </button>
+          {/* Grouped so `justify-between` keeps both hard against the right
+              edge — loose, the toggle would float into the middle of the bar.
+              The toggle sits outside the sheet so it is reachable without
+              opening the menu first. */}
+          <div className="flex items-center gap-1 md:hidden">
+            <ThemeToggle />
+
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              className="relative z-10 grid h-10 w-10 place-items-center"
+            >
+              <span className="relative block h-[11px] w-6" aria-hidden="true">
+                <span
+                  className={`absolute left-0 block h-px w-full bg-current transition-all duration-300 ${
+                    open ? 'top-[5px] rotate-45' : 'top-0'
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 block h-px w-full bg-current transition-all duration-300 ${
+                    open ? 'top-[5px] -rotate-45' : 'top-[11px]'
+                  }`}
+                />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 

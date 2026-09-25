@@ -46,13 +46,40 @@ export const metadata: Metadata = {
   },
 }
 
-// The site is dark by design, not by preference — this tells the browser so
-// form controls and scrollbars match.
-export const viewport = { colorScheme: 'dark' as const, themeColor: '#050608' }
+export const viewport = {
+  colorScheme: 'dark light' as const,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#050608' },
+    { media: '(prefers-color-scheme: light)', color: '#f4f3f1' },
+  ],
+}
+
+/* Runs before the first paint, so a visitor who prefers light never sees a
+   black flash (or the reverse). An explicit choice wins; otherwise the
+   system preference decides. Kept as a string because it has to be inline
+   and synchronous — a module would load too late to help. */
+const themeScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem('theme');
+    var light = stored
+      ? stored === 'light'
+      : window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (light) document.documentElement.classList.add('light');
+  } catch (e) {}
+})();
+`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable} ${serif.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${display.variable} ${serif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="font-sans">
         <a
           href="#main"
