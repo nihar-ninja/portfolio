@@ -81,7 +81,7 @@ export const about = {
      it is what a screen reader announces, and what shows if the file fails
      to load. */
   imageAlt:
-    'Gig poster for The Static Rejects: torn-paper lettering and a photocopied hand over a grainy black-and-white crowd',
+    'Weathered gig poster for The Static Rejects pasted on a wall, torn and taped at the corners, a photocopied hand raised to the camera at its centre',
   facts: [
     { label: 'Based in', value: 'Bangalore, IN' },
     { label: 'Works across', value: 'Design, film and code' },
