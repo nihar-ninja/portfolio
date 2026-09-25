@@ -36,10 +36,11 @@ export default function AboutPage() {
 
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">
             <Reveal className="lg:col-span-5">
-              {/* 2:3 to match the poster exactly — a 4:5 crop ate the top and
-                  bottom of it. Change this if you swap in an image of another
-                  shape, and update about.imageAlt to match. */}
-              <div className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-chalk/10">
+              {/* Matches the artwork's own 3:4 — object-cover crops whatever
+                  does not fit, and the hand-lettered bits sit right at the
+                  edges. Change this ratio whenever you swap the image, and
+                  update about.imageAlt with it. */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-chalk/10">
                 <Image
                   src="/photo.jpg"
                   alt={about.imageAlt}

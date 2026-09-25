@@ -81,7 +81,7 @@ export const about = {
      it is what a screen reader announces, and what shows if the file fails
      to load. */
   imageAlt:
-    'Weathered gig poster for The Static Rejects pasted on a wall, torn and taped at the corners, a photocopied hand raised to the camera at its centre',
+    'Anime-style illustration of a young man in glasses and a striped shirt holding a phone, looking up at a bright blue sky, with hand-lettered signs reading "dream plan do repeat" and "same dude bigger dreams"',
   facts: [
     { label: 'Based in', value: 'Bangalore, IN' },
     { label: 'Works across', value: 'Design, film and code' },
