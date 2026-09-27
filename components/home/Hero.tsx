@@ -34,10 +34,14 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl flex-col px-6 lg:px-10">
-        {/* Layer 1 — the word. */}
+        {/* Layer 1 — the word. Filled with a vertical gradient rather than one
+            flat tint: it reads strongest where it clears the figure's head and
+            falls away toward the floor, which makes it sit behind the figure
+            instead of being a flat panel of grey. The gradient is built from
+            `chalk`, so it follows the theme like everything else. */}
         <motion.h1
           style={{ y: wordY, opacity: fade }}
-          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(4rem,19vw,17rem)] text-chalk/[0.13] sm:top-[10svh]"
+          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 bg-gradient-to-b from-chalk/[0.26] via-chalk/[0.15] to-chalk/[0.04] bg-clip-text text-center text-[clamp(4rem,19vw,17rem)] text-transparent sm:top-[10svh]"
         >
           <span className="sr-only">
             {site.name} — {site.role}
