@@ -43,6 +43,20 @@ export default function MusicToggle() {
     }
   }, [])
 
+  /* Only one tab should ever be playing. Without this, opening the site in a
+     second tab gives two tracks over each other, and pressing pause in one
+     leaves the other still going — which looks exactly like a broken pause
+     button. The `storage` event fires in every OTHER tab, so whichever tab
+     the visitor last touched wins and the rest fall silent. */
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key !== 'music-sync') return
+      audioRef.current?.pause()
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
+
   // Keeps the button honest if playback stops for any other reason.
   useEffect(() => {
     const audio = audioRef.current
@@ -79,6 +93,10 @@ export default function MusicToggle() {
   function remember(value: 'on' | 'off') {
     try {
       localStorage.setItem('music', value)
+      /* A value that always changes. `storage` only fires when the stored
+         value actually differs, so two tabs both pressing play would write
+         'on' over 'on' and never hear about each other. */
+      localStorage.setItem('music-sync', String(Date.now()))
     } catch {
       // Private window. Works for this page view, just is not remembered.
     }
