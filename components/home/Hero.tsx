@@ -34,19 +34,51 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-7xl flex-col px-6 lg:px-10">
-        {/* Layer 1 — the word. Filled with a vertical gradient rather than one
-            flat tint: it reads strongest where it clears the figure's head and
-            falls away toward the floor, which makes it sit behind the figure
-            instead of being a flat panel of grey. The gradient is built from
-            `chalk`, so it follows the theme like everything else. */}
+        {/* Layer 1 — the word, lit like signage.
+
+            Three stacked copies: two blurred ones behind that make the bloom,
+            and a sharp gradient-filled one in front. A single element cannot do
+            this, because `bg-clip-text` leaves the text itself transparent and
+            a transparent glyph casts no text-shadow.
+
+            Blur radii are in `em` so the bloom scales with the type instead of
+            swamping it on a phone. The whole effect is dark-theme only — on a
+            pale background a glow reads as a smudge, so light mode keeps the
+            flat gradient it had. */}
         <motion.h1
           style={{ y: wordY, opacity: fade }}
-          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 bg-gradient-to-b from-chalk/[0.26] via-chalk/[0.15] to-chalk/[0.04] bg-clip-text text-center text-[clamp(4rem,19vw,17rem)] text-transparent sm:top-[10svh]"
+          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(4rem,19vw,17rem)] sm:top-[10svh]"
         >
           <span className="sr-only">
             {site.name} — {site.role}
           </span>
-          <span aria-hidden="true">{home.displayWord}</span>
+
+          <span aria-hidden="true" className="relative inline-block">
+            {/* Light bars raking off the top and bottom of the letterforms. */}
+            <span className="absolute inset-x-[-12%] top-[0.12em] h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-70 light:opacity-0" />
+            <span className="absolute inset-x-[-12%] bottom-[0.2em] h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 light:opacity-0" />
+
+            {/* Bloom in three passes: a white-hot core hugging the edge, then
+                the accent spilling out tight and then wide. Lighting a sign
+                this way gives the spill a colour the letters themselves do not
+                have, which is what sells it. */}
+            <span className="absolute inset-0 select-none text-chalk opacity-70 blur-[0.018em] light:opacity-0">
+              {home.displayWord}
+            </span>
+            <span className="absolute inset-0 select-none text-accent opacity-95 blur-[0.06em] light:opacity-0">
+              {home.displayWord}
+            </span>
+            <span className="absolute inset-0 select-none text-accent opacity-55 blur-[0.19em] light:opacity-0">
+              {home.displayWord}
+            </span>
+
+            {/* The face of the letters. White holds most of the height and only
+                cools into the accent near the baseline — tipping to blue too
+                early loses the lit-from-behind look. */}
+            <span className="relative bg-gradient-to-b from-chalk from-20% via-chalk/95 via-62% to-accent bg-clip-text text-transparent light:from-chalk/30 light:via-chalk/20 light:to-chalk/[0.06]">
+              {home.displayWord}
+            </span>
+          </span>
         </motion.h1>
 
         {/* Layer 2 — the portrait, in front of the word. */}

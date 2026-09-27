@@ -14,7 +14,11 @@
     --c-void: 5 6 8;
     --c-panel: 11 13 17;
     --c-chalk: 242 241 239;
-    --c-accent: 59 91 253;
+    /* Warm coral, pulled from the sherwani in the hero illustration — the
+       largest thing on the site, so the accent answers to it rather than
+       fighting it. It also glows properly on near-black, which electric blue
+       never quite did. */
+    --c-accent: 226 104 58;
     --c-accent-deep: 178 84 47;
     /* Lifted panels need a visible edge on light and almost none on dark. */
     --shadow-panel: 0 0 0 0 transparent;
@@ -28,10 +32,11 @@
     --c-void: 244 243 241;
     --c-panel: 255 255 255;
     --c-chalk: 23 23 26;
-    /* Darkened from the dark-mode blue to clear 4.5:1 on white — the dark
-       theme's brighter blue only manages about 5:1 and looks thin. */
-    --c-accent: 46 76 224;
-    --c-accent-deep: 150 66 33;
+    /* The bright coral only reaches 3.35:1 on white and fails AA outright, so
+       light mode burns it down. This sits at 5.38:1 on the page and 5.97:1 on
+       the white panels — real headroom rather than scraping 4.5. */
+    --c-accent: 162 73 40;
+    --c-accent-deep: 122 54 29;
     --shadow-panel: 0 -1px 40px -12px rgb(23 23 26 / 0.12);
     --glow-alpha: 0.06;
   }
