@@ -40,12 +40,6 @@ const config: Config = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
-        // The music button's bars. Heights, not transforms, so the bars grow
-        // from the baseline the way a level meter does.
-        eq: {
-          '0%, 100%': { height: '3px' },
-          '50%': { height: '15px' },
-        },
         'cue-line': {
           '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
           '45%': { transform: 'scaleX(1)', transformOrigin: 'left' },
@@ -55,7 +49,6 @@ const config: Config = {
       },
       animation: {
         marquee: 'marquee 38s linear infinite',
-        eq: 'eq 1s ease-in-out infinite',
         'cue-line': 'cue-line 2.4s ease-in-out infinite',
       },
     },

@@ -98,23 +98,29 @@ export default function MusicToggle() {
         title={playing ? `Pause ${music.title}` : `Play ${music.title}`}
         className="grid h-9 w-9 place-items-center rounded-full text-chalk/55 transition-colors hover:text-chalk"
       >
-        {/* Four bars that bounce while it plays and sit flat when it does not,
-            so the state is readable without relying on colour alone. */}
-        <span className="flex h-[15px] items-end gap-[3px]" aria-hidden="true">
-          {[0, 1, 2, 3].map((bar) => (
-            <span
-              key={bar}
-              className={`w-[2px] rounded-sm bg-current transition-[height] duration-300 ${
-                playing ? 'animate-eq' : 'h-[3px]'
-              }`}
-              style={
-                playing
-                  ? { animationDelay: `${bar * 0.15}s`, animationDuration: `${0.9 + bar * 0.1}s` }
-                  : undefined
-              }
-            />
-          ))}
-        </span>
+        {/* A speaker, crossed out when off. An abstract level meter read as
+            three dots when paused — nobody recognised it as a sound control.
+            The crossed-out speaker is the one icon everyone already knows. */}
+        <svg
+          viewBox="0 0 20 20"
+          className="h-[18px] w-[18px]"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M2.5 7.5h3L9.5 4v12L5.5 12.5h-3z" />
+          {playing ? (
+            <>
+              <path d="M12.4 7.4a3.6 3.6 0 0 1 0 5.2" />
+              <path d="M14.8 5.2a7 7 0 0 1 0 9.6" />
+            </>
+          ) : (
+            <path d="M12.6 8l4 4M16.6 8l-4 4" />
+          )}
+        </svg>
       </button>
     </>
   )
