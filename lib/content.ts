@@ -214,6 +214,8 @@ export const contact = {
     { label: 'Instagram', href: 'https://instagram.com/nihar_prabhakar', handle: '@nihar_prabhakar' },
     { label: 'GitHub', href: 'https://github.com/nihar-ninja', handle: '@nihar-ninja' },
   ],
-  // PLACEHOLDER: drop your CV at /public/resume.pdf, or remove this link.
+  /* Kept for when you have a CV. It is not linked from anywhere right now —
+     put the file at /public/resume.pdf and add the link back on the contact
+     page, next to the "Based in" line. */
   resumeHref: '/resume.pdf',
 }

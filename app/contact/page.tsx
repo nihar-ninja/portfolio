@@ -59,12 +59,10 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={0.16}>
-              <p className="mt-10 text-sm text-chalk/40">
-                Based in {site.location}. {/* PLACEHOLDER: drop your CV at /public/resume.pdf. */}
-                <a href={contact.resumeHref} className="link-wipe ml-1 text-chalk/60">
-                  Résumé (PDF)
-                </a>
-              </p>
+              {/* No résumé link here on purpose — there is no CV to link to
+                  yet. To add one back: drop the file at /public/resume.pdf and
+                  link contact.resumeHref from this line. */}
+              <p className="mt-10 text-sm text-chalk/40">Based in {site.location}.</p>
             </Reveal>
           </div>
 

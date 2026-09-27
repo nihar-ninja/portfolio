@@ -44,7 +44,7 @@ export default function Nav() {
         {/* Wider than the 7xl the page content uses, so the bar sits closer to
             the edges of a big screen instead of stranded in the middle. Enough
             padding is kept that nothing ever touches the edge. */}
-        <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto flex h-[4.5rem] max-w-[104rem] items-center justify-between px-6 sm:px-8 lg:px-12">
           <Link
             href="/"
             className="font-serif text-2xl italic leading-none"
