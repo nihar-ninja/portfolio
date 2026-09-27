@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Archivo_Black, Inter, Instrument_Serif } from 'next/font/google'
+import { Anton, Inter, Instrument_Serif } from 'next/font/google'
 import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
 import PageTransition from '@/components/PageTransition'
@@ -13,11 +13,8 @@ const inter = Inter({
   display: 'swap',
 })
 
-/* Display face, only ever used large. Archivo Black rather than a condensed
-   poster face: open counters and even proportions hold up at 17rem, where a
-   tightly condensed face closes up and starts to look cheap. It is much wider
-   per character, so the type scales below were brought down to suit. */
-const display = Archivo_Black({
+// Heavy condensed display face. Only ever used large.
+const display = Anton({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-display',

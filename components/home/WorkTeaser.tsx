@@ -28,7 +28,7 @@ export default function WorkTeaser() {
     <section className="panel px-6 py-24 sm:py-32 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-end justify-between gap-6">
-          <DisplayHeading lines={['Selected', 'work']} className="text-[clamp(2rem,6vw,5rem)]" />
+          <DisplayHeading lines={['Selected', 'work']} className="text-[clamp(2.5rem,8vw,6.5rem)]" />
           <Reveal delay={0.1}>
             <Link href="/work" className="link-wipe mb-2 shrink-0 text-sm text-chalk/60">
               All {projects.length} projects

@@ -47,17 +47,13 @@ export default function Hero() {
             flat gradient it had. */}
         <motion.h1
           style={{ y: wordY, opacity: fade }}
-          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(2.5rem,12.5vw,11.5rem)] sm:top-[10svh]"
+          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(4rem,19vw,17rem)] sm:top-[10svh]"
         >
           <span className="sr-only">
             {site.name} — {site.role}
           </span>
 
           <span aria-hidden="true" className="relative inline-block">
-            {/* Light bars raking off the top and bottom of the letterforms. */}
-            <span className="absolute inset-x-[-12%] top-[0.12em] h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-70 light:opacity-0" />
-            <span className="absolute inset-x-[-12%] bottom-[0.2em] h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 light:opacity-0" />
-
             {/* Bloom in three passes: a white-hot core hugging the edge, then
                 the accent spilling out tight and then wide. Lighting a sign
                 this way gives the spill a colour the letters themselves do not

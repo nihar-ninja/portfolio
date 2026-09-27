@@ -21,7 +21,7 @@ export default function SkillsPage() {
           <DisplayHeading
             as="h1"
             lines={['Skills']}
-            className="mt-6 text-[clamp(3rem,13vw,11rem)]"
+            className="mt-6 text-[clamp(4rem,19vw,15rem)]"
           />
         </div>
       </section>

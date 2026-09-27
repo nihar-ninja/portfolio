@@ -32,7 +32,7 @@ export default function WorkPage() {
           <DisplayHeading
             as="h1"
             lines={['Work']}
-            className="mt-6 text-[clamp(3.5rem,15vw,13rem)]"
+            className="mt-6 text-[clamp(4rem,20vw,16rem)]"
           />
 
           {hasProjects && (

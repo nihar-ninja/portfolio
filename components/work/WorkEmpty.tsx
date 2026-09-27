@@ -17,8 +17,8 @@ export default function WorkEmpty({ compact = false }: { compact?: boolean }) {
         lines={workEmpty.headline}
         className={
           compact
-            ? 'mt-5 text-[clamp(1.75rem,5vw,3.75rem)]'
-            : 'mt-6 text-[clamp(2rem,7vw,5.5rem)]'
+            ? 'mt-5 text-[clamp(2.25rem,7vw,5rem)]'
+            : 'mt-6 text-[clamp(2.75rem,10vw,8rem)]'
         }
       />
 

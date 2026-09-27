@@ -20,7 +20,7 @@ export default function ContactPage() {
         <DisplayHeading
           as="h1"
           lines={contact.headline}
-          className="mt-6 text-[clamp(2rem,7.5vw,6rem)]"
+          className="mt-6 text-[clamp(2.75rem,11vw,9rem)]"
         />
 
         <div className="mt-16 grid gap-16 lg:grid-cols-12 lg:gap-8">
