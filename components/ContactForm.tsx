@@ -38,12 +38,18 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          name,
-          email,
-          message,
-          _subject: `Portfolio enquiry — ${name || 'website'}`,
-          // Reply in Gmail then goes to them, not to yourself.
+          /* Reply-To first, and the plain `email` field kept alongside it —
+             FormSubmit falls back to the first email-looking field when the
+             explicit one is not picked up, so both are supplied. Hitting
+             Reply should then reach the sender rather than your own inbox. */
           _replyto: email,
+          email,
+          /* The From address always belongs to the sending service — mail
+             providers reject forged senders — so the visitor's name leads the
+             subject instead. That is what shows in the inbox list. */
+          _subject: `${name || 'Someone'} — portfolio enquiry`,
+          name,
+          message,
           _template: 'table',
           // Their captcha page would defeat the point of staying on the site.
           _captcha: 'false',
