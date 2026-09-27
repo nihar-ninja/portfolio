@@ -26,6 +26,19 @@ export const site = {
   location: 'Bangalore, IN',
 }
 
+/* Background music. It never starts on its own — browsers block autoplay with
+   sound anyway, and a site that plays music at you uninvited is worse than one
+   that offers it. The visitor presses play, and the choice is remembered.
+
+   Swap the file at /public/audio/theme.mp3 to change the track. */
+export const music = {
+  src: '/audio/theme.mp3',
+  // Announced by screen readers and shown in the button's tooltip.
+  title: 'Tadow (instrumental)',
+  // 0 to 1. Background music wants to sit well under the content.
+  volume: 0.35,
+}
+
 export const nav = [
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },

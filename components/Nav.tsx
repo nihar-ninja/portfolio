@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { nav, site } from '@/lib/content'
+import MusicToggle from './MusicToggle'
 import ThemeToggle from './ThemeToggle'
 
 export default function Nav() {
@@ -53,35 +54,39 @@ export default function Nav() {
             {site.logotype}
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-                className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                  isActive(item.href) ? 'text-chalk' : 'text-chalk/50 hover:text-chalk'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <span className="mx-2 h-4 w-px bg-chalk/15" aria-hidden="true" />
+          {/* One row for everything on the right. The controls render exactly
+              once each and are simply shown or hidden per breakpoint — the
+              music button in particular owns an <audio> element, and a second
+              copy would give two tracks playing over each other. */}
+          <div className="flex items-center gap-1">
+            <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+              {nav.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                    isActive(item.href) ? 'text-chalk' : 'text-chalk/50 hover:text-chalk'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <span className="mx-1 hidden h-4 w-px bg-chalk/15 md:block" aria-hidden="true" />
+
+            {/* Both toggles stay outside the mobile sheet, so they work
+                without opening the menu first. */}
             <ThemeToggle />
+            <MusicToggle />
+
             <Link
               href="/contact"
-              className="ml-3 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-void transition-colors hover:bg-chalk hover:text-void"
+              className="ml-2 hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-void transition-colors hover:bg-chalk hover:text-void md:inline-block"
             >
               Hire me
             </Link>
-          </nav>
-
-          {/* Grouped so `justify-between` keeps both hard against the right
-              edge — loose, the toggle would float into the middle of the bar.
-              The toggle sits outside the sheet so it is reachable without
-              opening the menu first. */}
-          <div className="flex items-center gap-1 md:hidden">
-            <ThemeToggle />
 
             <button
               type="button"
@@ -89,7 +94,7 @@ export default function Nav() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Close menu' : 'Open menu'}
-              className="relative z-10 grid h-10 w-10 place-items-center"
+              className="relative z-10 grid h-10 w-10 place-items-center md:hidden"
             >
               <span className="relative block h-[11px] w-6" aria-hidden="true">
                 <span
