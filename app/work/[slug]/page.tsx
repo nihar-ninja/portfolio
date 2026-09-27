@@ -41,7 +41,7 @@ export default function ProjectPage({ params }: Params) {
             <DisplayHeading
               as="h1"
               lines={[project.title]}
-              className="mt-8 text-[clamp(2.5rem,9vw,7rem)]"
+              className="mt-8 text-[clamp(2rem,6.5vw,5rem)]"
               delay={0.05}
             />
 

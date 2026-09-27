@@ -27,7 +27,7 @@ const config: Config = {
       },
       fontFamily: {
         // Heavy condensed face — used only at display sizes, never for reading.
-        display: ['var(--font-display)', 'Impact', 'sans-serif'],
+        display: ['var(--font-display)', 'Arial Black', 'sans-serif'],
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         // Serif italic, used for the logotype and the odd pull quote.
         serif: ['var(--font-serif)', 'ui-serif', 'Georgia', 'serif'],

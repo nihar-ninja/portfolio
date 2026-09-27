@@ -47,7 +47,7 @@ export default function Hero() {
             flat gradient it had. */}
         <motion.h1
           style={{ y: wordY, opacity: fade }}
-          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(4rem,19vw,17rem)] sm:top-[10svh]"
+          className="display pointer-events-none absolute inset-x-0 top-[13svh] z-0 text-center text-[clamp(2.5rem,12.5vw,11.5rem)] sm:top-[10svh]"
         >
           <span className="sr-only">
             {site.name} — {site.role}

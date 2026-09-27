@@ -31,7 +31,7 @@ export default function AboutPage() {
           <DisplayHeading
             as="h1"
             lines={['About', 'me']}
-            className="text-[clamp(4rem,17vw,14rem)] text-chalk/90"
+            className="text-[clamp(3rem,12vw,10rem)] text-chalk/90"
           />
 
           <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-14">

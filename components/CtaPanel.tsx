@@ -15,7 +15,7 @@ export default function CtaPanel() {
 
         <DisplayHeading
           lines={contact.headline}
-          className="mt-8 text-[clamp(2.75rem,10vw,8rem)]"
+          className="mt-8 text-[clamp(2rem,7vw,5.5rem)]"
         />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-12">

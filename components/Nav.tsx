@@ -128,7 +128,7 @@ export default function Nav() {
               href={item.href}
               tabIndex={open ? undefined : -1}
               style={{ transitionDelay: open ? `${100 + i * 60}ms` : '0ms' }}
-              className={`display border-b rule py-5 text-[15vw] transition-all duration-500 ${
+              className={`display border-b rule py-5 text-[12vw] transition-all duration-500 ${
                 open ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               } ${isActive(item.href) ? 'text-accent' : 'text-chalk'}`}
             >
