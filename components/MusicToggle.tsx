@@ -114,7 +114,9 @@ export default function MusicToggle() {
         aria-pressed={playing}
         aria-label={playing ? `Pause ${music.title}` : `Play ${music.title}`}
         title={playing ? `Pause ${music.title}` : `Play ${music.title}`}
-        className="grid h-9 w-9 place-items-center rounded-full text-chalk/55 transition-colors hover:text-chalk"
+        /* 44px hit area, 18px icon — a mis-tap here starts a 2MB download and
+           plays music at someone who did not ask for it. */
+        className="grid h-11 w-11 place-items-center rounded-full text-chalk/55 transition-colors hover:text-chalk"
       >
         {/* A speaker, crossed out when off. An abstract level meter read as
             three dots when paused — nobody recognised it as a sound control.

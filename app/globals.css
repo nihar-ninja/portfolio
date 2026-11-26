@@ -79,9 +79,18 @@
     border-radius: 2px;
   }
 
+  /* This block used to set `scroll-behavior: smooth` here, on the theory that
+     Lenis is off for these visitors and native smoothing should take over.
+     That is backwards: reduced motion is a request for less movement, not for
+     a different implementation of it, and because Lenis never initialises for
+     them the `.lenis-smooth` override above could not undo it. The result was
+     that the one group who opted out of motion got the only animated scrolling
+     on the site — on the skip link, on in-page anchors, and on the footer's
+     back-to-top. `auto` is the initial value; it is stated rather than deleted
+     so the next person does not re-add the same rule. */
   @media (prefers-reduced-motion: reduce) {
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
     }
   }
 }
@@ -93,8 +102,15 @@
     @apply font-display uppercase leading-[0.82] tracking-[-0.01em];
   }
 
+  /* 11px counts as normal-size text, so this needs 4.5:1. At chalk/40 it was
+     3.42:1 on the dark page and 2.51:1 on the light one — and it is the only
+     visual label the three contact fields have, since those inputs carry no
+     placeholder. /60 is the lowest step that clears AA in both themes
+     (6.60:1 dark, 4.52:1 light). The accent was already darkened for light
+     mode for exactly this reason; the chalk ramp had simply never been held
+     to the same standard. */
   .eyebrow {
-    @apply font-sans text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-chalk/40;
+    @apply font-sans text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-chalk/60;
   }
 
   .rule {
