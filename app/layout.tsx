@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
 import PageTransition from '@/components/PageTransition'
 import SmoothScroll from '@/components/SmoothScroll'
-import { contact, site } from '@/lib/content'
+import { site } from '@/lib/content'
 import './globals.css'
 
 const inter = Inter({
@@ -44,14 +44,6 @@ export const metadata: Metadata = {
     url: site.url,
     type: 'website',
   },
-  /* The image itself comes from app/opengraph-image.tsx — Next finds it and
-     fills in og:image. Twitter has no card type of its own here; it falls back
-     to that same image once the card is declared large. */
-  twitter: {
-    card: 'summary_large_image',
-    title: site.title,
-    description: site.description,
-  },
 }
 
 export const viewport = {
@@ -78,26 +70,6 @@ const themeScript = `
 })();
 `
 
-/* Person schema. Without it a search engine has to infer who the site is
-   about from the page text; with it, the name, the role, the location and the
-   social accounts are stated outright. Everything here reads from
-   lib/content.ts, so it cannot drift from what the pages say. */
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: site.name,
-  jobTitle: site.role,
-  description: site.description,
-  url: site.url,
-  email: `mailto:${contact.email}`,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Bangalore',
-    addressCountry: 'IN',
-  },
-  sameAs: contact.socials.map((social) => social.href),
-}
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -107,10 +79,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
       </head>
       <body className="font-sans">
         <a
