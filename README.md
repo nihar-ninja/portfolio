@@ -25,7 +25,7 @@ Drop your own files into `/public`, keeping the names:
 | `photo-cutout.png` | Hero portrait | **Transparent PNG.** Background removed — that is what lets the giant word show through behind you. Portrait crop, ~900×1200 or larger. |
 | `photo.jpg` | About-page portrait | Normal photo, 4:5 crop, ~1000×1250 or larger. |
 | `projects/*.jpg` | One screenshot per project | 16:10 works best. Point `image` in `lib/content.ts` at whatever you name them. |
-| `resume.pdf` | Your CV | Not included, and not linked from anywhere yet. `contact.resumeHref` in `lib/content.ts` already points at it — drop the file in and add the link back on `/contact`. |
+| `resume.pdf` | Your CV | Linked from `/contact`. Not included — add it or remove the link. |
 
 If you have no cut-out, point the hero at `/photo.jpg` in `components/home/Hero.tsx`.
 It still works; it just reads as a framed picture rather than a layered cut-out.
@@ -76,17 +76,7 @@ every route is static, including the project pages.
 
 ## Notes
 
-- The contact form has no backend of its own. It POSTs to FormSubmit, which takes the
-  destination address in the URL rather than an API key, so the site stays a static
-  deploy with nothing to configure. The first submission triggers a one-time
-  confirmation email to that address — until someone clicks it, messages are held
-  rather than delivered. To send some other way, replace the body of `handleSubmit` in
+- The contact form has no backend. It composes a `mailto:` link, so the site stays a
+  static deploy. To send server-side instead, replace the body of `handleSubmit` in
   `components/ContactForm.tsx`.
-- Dark is the default. A light theme ships alongside it: the palette lives as CSS
-  variables in `app/globals.css`, a `light` class on `<html>` swaps it, and the inline
-  script in `app/layout.tsx` applies the stored or system preference before first
-  paint so there is no flash.
-- The social card at `app/opengraph-image.tsx` and the `sitemap`/`robots` routes all
-  read from `lib/content.ts`, so changing your name, role or URL there updates them
-  too. Set `site.url` to your real domain before deploying — the sitemap and the
-  canonical URLs are built from it.
+- The site is dark only, on purpose.
