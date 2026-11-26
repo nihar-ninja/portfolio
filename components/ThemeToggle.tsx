@@ -38,10 +38,7 @@ export default function ThemeToggle() {
          neutral rather than claiming the wrong one. */
       aria-label={mounted ? (light ? 'Switch to dark theme' : 'Switch to light theme') : 'Switch theme'}
       aria-pressed={mounted ? light : undefined}
-      /* 44px hit area, 18px icon. It sits a few pixels from the menu button
-         on a phone, where a mis-aimed thumb flips the whole site to the other
-         theme. */
-      className="grid h-11 w-11 place-items-center rounded-full text-chalk/55 transition-colors hover:text-chalk"
+      className="grid h-9 w-9 place-items-center rounded-full text-chalk/55 transition-colors hover:text-chalk"
     >
       {/* Sun — shown while dark is active, i.e. the thing you switch TO. */}
       <svg

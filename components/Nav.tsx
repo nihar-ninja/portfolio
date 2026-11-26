@@ -94,7 +94,7 @@ export default function Nav() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? 'Close menu' : 'Open menu'}
-              className="relative z-10 grid h-11 w-11 place-items-center md:hidden"
+              className="relative z-10 grid h-10 w-10 place-items-center md:hidden"
             >
               <span className="relative block h-[11px] w-6" aria-hidden="true">
                 <span

@@ -71,14 +71,7 @@ export default function Hero() {
             {/* The face of the letters. White holds most of the height and only
                 cools into the accent near the baseline — tipping to blue too
                 early loses the lit-from-behind look. */}
-            {/* The light overrides that used to sit here faded the letters to
-                chalk/30 → chalk/[0.06], which on the warm off-white page
-                composited to roughly 1.9:1 at the top of the ramp and 1.1:1 at
-                the baseline — the largest element on the site, dissolving into
-                the background. The bloom layers above are the part that genuinely
-                cannot survive a pale background; the letterforms can, so they now
-                use the same chalk-to-accent ramp in both themes. */}
-            <span className="relative bg-gradient-to-b from-chalk from-20% via-chalk/95 via-62% to-accent bg-clip-text text-transparent">
+            <span className="relative bg-gradient-to-b from-chalk from-20% via-chalk/95 via-62% to-accent bg-clip-text text-transparent light:from-chalk/30 light:via-chalk/20 light:to-chalk/[0.06]">
               {home.displayWord}
             </span>
           </span>
@@ -136,12 +129,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-x-6 bottom-7 z-30 flex items-end justify-between lg:inset-x-10">
         <Link
           href="/work"
-          /* The figure runs the full height of a phone screen, so this pill
-             lands on top of the artwork rather than on the background. A
-             tinted, blurred backdrop is what keeps the label and the outline
-             legible over it — on a wide screen there is nothing behind it and
-             the same backdrop reads as almost nothing. */
-          className="pointer-events-auto group inline-flex items-center gap-3 rounded-full border border-chalk/20 bg-void/70 py-2 pl-5 pr-2 text-sm backdrop-blur-md transition-colors hover:border-accent"
+          className="pointer-events-auto group inline-flex items-center gap-3 rounded-full border border-chalk/20 py-2 pl-5 pr-2 text-sm transition-colors hover:border-accent"
         >
           See the work
           <span className="grid h-8 w-8 place-items-center rounded-full bg-accent text-void transition-transform duration-300 group-hover:translate-x-0.5">
